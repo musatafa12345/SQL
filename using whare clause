@@ -1,0 +1,85 @@
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    department VARCHAR(50),
+    job_title VARCHAR(50),
+    salary DECIMAL(10, 2),
+    hire_date DATE,
+    city VARCHAR(50)
+);
+
+
+INSERT INTO employees (employee_id, name, department, job_title, salary, hire_date, city) VALUES
+(1, 'John Smith', 'Sales', 'Sales Manager', 75000, '2022-03-15', 'New York'),
+(2, 'Jane Doe', 'HR', 'HR Specialist', 50000, '2021-07-23', 'Los Angeles'),
+(3, 'Jim Brown', 'IT', 'IT Support', 60000, '2020-11-10', 'Chicago'),
+(4, 'Jack White', 'Finance', 'Accountant', 70000, '2019-04-25', 'New York'),
+(5, 'Jill Green', 'Sales', 'Sales Representative', 45000, '2023-02-05', 'Houston'),
+(6, 'Jerry Black', 'Finance', 'Financial Analyst', 80000, '2018-06-30', 'New York'),
+(7, 'Jake Blue', 'IT', 'Developer', 95000, '2022-09-14', 'San Francisco'),
+(8, 'Jessie Pink', 'HR', 'HR Manager', 72000, '2023-01-01', 'Miami'),
+(9, 'Jamie Yellow', 'Sales', 'Sales Representative', 52000, '2023-05-12', 'Chicago'),
+(10, 'Jordan Purple', 'Shipped', 'Shipping Coordinator', 55000, '2023-04-20', 'Dallas');
+/*1Write a query to find all employees from the employees table who are in the 'Sales' department.
+SELECT * FROM employees where department='HR';*/
+
+/*2Write a query to get all employees from the employees table with a salary greater than $50,000.
+
+SELECT * from employees WHERE salary >50000;*/
+
+/*3Write a query to find all employees from the employees table who were hired after '2023-01-01' and are in the 'Shipped' department
+SELECT hire_date,department FROM employees WHERE hire_date >='2023-01-01' AND department='Shipped';
+
+SELECT * FROM employees WHERE hire_date >='2023-01-01' AND department='Shipped';*/
+
+/*4Write a query to get all employees from the employees table who work in the 'HR', 'Finance', or 'IT' departments.
+SELECT * FROM employees WHERE department= 'HR' OR department='Finace' OR department='IT';
+
+SELECT * FROM employees WHERE department in( 'HR','Finace', 'IT');
+*/
+
+/*5Write a query to find all employees from the employees table whose names start with 'J'.
+
+SELECT * FROM employees WHERE name LIKE  'j%';
+*/
+
+/*6Write a query to get all employees from the employees table with salaries between $20,000 and $100,000.
+
+SELECT * FROM employees WHERE salary BETWEEN 20000 AND 100000;
+*/
+/*
+7Write a query to find all employees from the employees table where the salary is greater than 
+$50,000 or the employee is from 'New York' and the job title is 'Manager'.
+
+SELECT * FROM employees WHERE salary > 50000 AND city='New york' AND job_title='Sales Manager';
+*/
+
+/*8Write a query to get all employees from the employees table who work in departments where the average salary is more than $70,000.*/
+
+
+SELECT department, AVG(salary) AS average_salary 
+FROM employees 
+GROUP BY department;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
